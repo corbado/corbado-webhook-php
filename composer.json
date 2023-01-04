@@ -2,6 +2,6 @@
   "name": "corbado/webhook-php",
   "version": "1.0.0",
   "autoload": {
-    "psr-4": {"Corbado\\": "src/"}
+    "psr-4": {"Corbado\\Webhook\\": "src/"}
   }
 }
