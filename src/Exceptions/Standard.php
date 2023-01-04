@@ -1,6 +1,6 @@
 <?php
 
-namespace Corbado\Exceptions;
+namespace Corbado\Webhook\Exceptions;
 
 class Standard extends \Exception {
 }
