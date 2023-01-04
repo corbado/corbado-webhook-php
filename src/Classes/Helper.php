@@ -1,8 +1,8 @@
 <?php
 
-namespace Corbado\Classes;
+namespace Corbado\Webhook\Classes;
 
-use Corbado\Exceptions\Standard;
+use Corbado\Webhook\Exceptions\Standard;
 
 class Helper
 {
@@ -29,7 +29,7 @@ class Helper
      * @param string $data
      * @return array
      * @throws Standard
-     * @throws \Corbado\Exceptions\Assert
+     * @throws \Corbado\Webhook\Exceptions\Assert
      */
     public static function jsonDecode(string $data): array
     {

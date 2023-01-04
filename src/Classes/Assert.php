@@ -1,6 +1,6 @@
 <?php
 
-namespace Corbado\Classes;
+namespace Corbado\Webhook\Classes;
 
 class Assert {
     /**
@@ -8,11 +8,11 @@ class Assert {
      *
      * @param string $data
      * @return void
-     * @throws \Corbado\Exceptions\Assert
+     * @throws \Corbado\Webhook\Exceptions\Assert
      */
     public static function stringNotEmpty(string $data) {
         if ($data == '') {
-            throw new \Corbado\Exceptions\Assert('Assert failed: Given string is empty');
+            throw new \Corbado\Webhook\Exceptions\Assert('Assert failed: Given string is empty');
         }
     }
 
@@ -22,7 +22,7 @@ class Assert {
      * @param string $data
      * @param array $possibleValues
      * @return void
-     * @throws \Corbado\Exceptions\Assert
+     * @throws \Corbado\Webhook\Exceptions\Assert
      */
     public static function stringEquals(string $data, array $possibleValues) {
         self::stringNotEmpty($data);
@@ -33,7 +33,7 @@ class Assert {
             }
         }
 
-        throw new \Corbado\Exceptions\Assert('Assert failed: Invalid value "' . $data . '" given, only the following are allowed: ' . implode(', ', $possibleValues));
+        throw new \Corbado\Webhook\Exceptions\Assert('Assert failed: Invalid value "' . $data . '" given, only the following are allowed: ' . implode(', ', $possibleValues));
     }
 
     /**
@@ -42,12 +42,12 @@ class Assert {
      * @param array $data
      * @param array $keys
      * @return void
-     * @throws \Corbado\Exceptions\Assert
+     * @throws \Corbado\Webhook\Exceptions\Assert
      */
     public static function arrayKeysExist(array $data, array $keys) {
         foreach ($keys as $key) {
             if (!array_key_exists($key, $data)) {
-                throw new \Corbado\Exceptions\Assert('Assert failed: Given array has no key "' . $key . '"');
+                throw new \Corbado\Webhook\Exceptions\Assert('Assert failed: Given array has no key "' . $key . '"');
             }
         }
     }

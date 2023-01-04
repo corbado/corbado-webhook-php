@@ -1,10 +1,10 @@
 <?php
 
-namespace Corbado;
+namespace Corbado\Webhook;
 
-use Corbado\Classes\Helper;
-use Corbado\Exceptions\Standard;
-use Corbado\Classes\Assert;
+use Corbado\Webhook\Classes\Helper;
+use Corbado\Webhook\Exceptions\Standard;
+use Corbado\Webhook\Classes\Assert;
 
 class Webhook
 {
