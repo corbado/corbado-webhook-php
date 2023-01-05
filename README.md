@@ -1,12 +1,12 @@
-# Intro
+# Description
 
-This PHP webhook library can be used on your side to handle webhook calls from the Corbado platform.
+This PHP webhooks library can be used in your backend to handle webhook calls from Corbado.
 
-It handles authentication and request and response communication so you can focus on the actual implemenation of the different actions.
+The library handles webhooks authentication and takes care of the correct formatting of requests and responses. This allows you to focus on the actual implementation of the different actions.
 
 # Installation
 
-For installation, you should use composer:
+For installation, using composer is recommended:
 
 ```
 composer require corbado/webhook-php
@@ -17,4 +17,4 @@ To learn how Corbado uses webhooks, please have a look at our [webhooks document
 
 # Examples
 
-See [examples](examples/simple.php) for a very simple usage of the webhook library.
+See [examples](examples/simple.php) for a very simple usage of the webhooks library.
