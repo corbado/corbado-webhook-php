@@ -12,9 +12,6 @@ For installation, you should use composer:
 composer require corbado/webhook-php
 ```
 
-# Documentation
-To learn more about how Corbado uses webhooks, please have a look at our [webhooks documentation](https://docs.corbado.com/helpful-guides/webhooks).
-
 # Examples
 
 See [examples](examples/simple.php) for a very simple usage of the webhook library.
