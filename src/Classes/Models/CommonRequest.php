@@ -6,5 +6,5 @@ class CommonRequest
 {
     public string $projectID;
     public string $action;
-    public string $requestID;
+    public string $id;
 }

@@ -34,7 +34,7 @@ class Webhook
 
     const ACTION_AUTH_METHODS = 'auth_methods';
     const ACTION_PASSWORD_VERIFY = 'password_verify';
-    const STANDARD_FIELDS = ['projectID', 'action', 'requestID'];
+    const STANDARD_FIELDS = ['projectID', 'action', 'id',];
 
     /**
      * Constructor
@@ -204,7 +204,7 @@ class Webhook
         $request = new Classes\Models\AuthMethodsRequest();
         $request->projectID = $data['projectID'];
         $request->action = self::ACTION_AUTH_METHODS;
-        $request->requestID = $data['requestID'];
+        $request->id = $data['id'];
         $request->data = $dataRequest;
 
         return $request;
@@ -258,10 +258,11 @@ class Webhook
         $dataRequest->username = $data['data']['username'];
         $dataRequest->password = $data['data']['password'];
 
+
         $request = new Classes\Models\PasswordVerifyRequest();
         $request->projectID = $data['projectID'];
         $request->action = self::ACTION_AUTH_METHODS;
-        $request->requestID = $data['requestID'];
+        $request->id = $data['id'];
         $request->data = $dataRequest;
 
         return $request;
