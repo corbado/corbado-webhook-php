@@ -34,7 +34,7 @@ class Webhook
 
     const ACTION_AUTH_METHODS = 'auth_methods';
     const ACTION_PASSWORD_VERIFY = 'password_verify';
-    const STANDARD_FIELDS = ['projectID', 'action', 'id',];
+    const STANDARD_FIELDS = ['id', 'projectID', 'action', 'data'];
 
     /**
      * Constructor
@@ -202,9 +202,9 @@ class Webhook
         $dataRequest->username = $data['data']['username'];
 
         $request = new Classes\Models\AuthMethodsRequest();
+        $request->id = $data['id'];
         $request->projectID = $data['projectID'];
         $request->action = self::ACTION_AUTH_METHODS;
-        $request->id = $data['id'];
         $request->data = $dataRequest;
 
         return $request;
@@ -219,7 +219,7 @@ class Webhook
      * @throws Exceptions\Assert
      * @throws Standard
      */
-    public function sendAuthMethodsResponse(string $status, bool $exit = true) : void
+    public function sendAuthMethodsResponse(string $status, bool $exit = true, string $responseID = '') : void
     {
         Assert::stringEquals($status, ['exists', 'not_exists', 'blocked']);
 
@@ -229,6 +229,7 @@ class Webhook
         $dataResponse->status = $status;
 
         $response = new Classes\Models\AuthMethodsResponse();
+        $response->responseID = $responseID;
         $response->data = $dataResponse;
 
         $this->sendResponse($response);
@@ -258,11 +259,10 @@ class Webhook
         $dataRequest->username = $data['data']['username'];
         $dataRequest->password = $data['data']['password'];
 
-
         $request = new Classes\Models\PasswordVerifyRequest();
+        $request->id = $data['id'];
         $request->projectID = $data['projectID'];
         $request->action = self::ACTION_AUTH_METHODS;
-        $request->id = $data['id'];
         $request->data = $dataRequest;
 
         return $request;
@@ -276,7 +276,7 @@ class Webhook
      * @return void
      * @throws Standard
      */
-    public function sendPasswordVerifyResponse(bool $success, bool $exit = true) : void
+    public function sendPasswordVerifyResponse(bool $success, bool $exit = true, string $responseID = '') : void
     {
         $this->checkAutomaticAuthentication();
 
@@ -284,6 +284,7 @@ class Webhook
         $dataResponse->success = $success;
 
         $response = new Classes\Models\PasswordVerifyResponse();
+        $response->responseID = $responseID;
         $response->data = $dataResponse;
 
         $this->sendResponse($response);
@@ -311,7 +312,7 @@ class Webhook
     /**
      * Sends response
      *
-     * @param $response
+     * @param mixed $response
      * @return void
      * @throws Standard
      */

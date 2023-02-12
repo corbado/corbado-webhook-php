@@ -78,14 +78,19 @@ try {
  * !!! MUST BE IMPLEMENTED BY YOU !!!
  *
  * @param string $username
- * @return bool
+ * @return string
  */
 function getUserStatus(string $username) : string {
     /////////////////////////////////////
     // Implement your logic here!
     ////////////////////////////////////
 
-    return AuthMethodsDataResponse::USER_EXISTS;
+    // Example
+    if ($username == 'existing@existing.com') {
+        return AuthMethodsDataResponse::USER_EXISTS;
+    }
+
+    return AuthMethodsDataResponse::USER_NOT_EXISTS;
 }
 
 /**
@@ -101,6 +106,11 @@ function verifyPassword(string $username, string $password) : bool {
     /////////////////////////////////////
     // Implement your logic here!
     ////////////////////////////////////
+
+    // Example
+    if ($username == 'existing@existing.com' && $password == 'supersecret') {
+        return true;
+    }
 
     return false;
 }

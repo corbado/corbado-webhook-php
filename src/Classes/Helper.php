@@ -9,14 +9,14 @@ class Helper
     /**
      * JSON encode
      *
-     * @param $data
+     * @param mixed $data
      * @return string
      * @throws Standard
      */
     public static function jsonEncode($data): string
     {
         $json = \json_encode($data);
-        if ($json === false) {
+        if ($json === false || json_last_error() !== JSON_ERROR_NONE) {
             throw new Standard('json_encode() failed: ' . json_last_error_msg());
         }
 
@@ -27,7 +27,7 @@ class Helper
      * JSON decode
      *
      * @param string $data
-     * @return array
+     * @return array<mixed>
      * @throws Standard
      * @throws \Corbado\Webhook\Exceptions\Assert
      */
@@ -36,7 +36,7 @@ class Helper
         Assert::stringNotEmpty($data);
 
         $json = \json_decode($data, true);
-        if ($json === false) {
+        if (json_last_error() !== JSON_ERROR_NONE) {
             throw new Standard('json_decode() failed: ' . json_last_error_msg());
         }
 
