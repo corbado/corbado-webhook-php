@@ -20,7 +20,7 @@ class Assert {
      * Checks if string is among the given possible values
      *
      * @param string $data
-     * @param array $possibleValues
+     * @param array<string> $possibleValues
      * @return void
      * @throws \Corbado\Webhook\Exceptions\Assert
      */
@@ -39,8 +39,8 @@ class Assert {
     /**
      * Checks if given keys exist in given data
      *
-     * @param array $data
-     * @param array $keys
+     * @param array<string, mixed> $data
+     * @param array<string> $keys
      * @return void
      * @throws \Corbado\Webhook\Exceptions\Assert
      */

@@ -4,7 +4,12 @@ namespace Corbado\Webhook\Classes\Models;
 
 class CommonRequest
 {
+    public string $id;
     public string $projectID;
     public string $action;
-    public string $id;
+
+    /**
+     * @deprecated
+     */
+    public string $requestID;
 }
