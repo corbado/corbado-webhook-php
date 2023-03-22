@@ -262,7 +262,7 @@ class Webhook
         $request = new Classes\Models\PasswordVerifyRequest();
         $request->id = $data['id'];
         $request->projectID = $data['projectID'];
-        $request->action = self::ACTION_AUTH_METHODS;
+        $request->action = self::ACTION_PASSWORD_VERIFY;
         $request->data = $dataRequest;
 
         return $request;
