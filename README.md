@@ -1,6 +1,6 @@
 # Description
 
-This PHP webhooks library can be used in your backend to handle webhook calls from Corbado.
+This PHP webhooks library can be used in your backend to handle webhook calls from Corbado for setting up passkeys authentication.
 
 The library handles webhooks authentication and takes care of the correct formatting of requests and responses. This allows you to focus on the actual implementation of the different actions.
 
